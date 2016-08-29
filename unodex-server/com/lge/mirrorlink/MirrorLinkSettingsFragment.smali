@@ -166,7 +166,6 @@
     .local v1, "usbManager":Landroid/hardware/usb/UsbManager;
     const-string/jumbo v2, "ncm"
 
-    invoke-virtual {v1, v2}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;)V
 
     .line 292
     const-string/jumbo v2, "MirrorLink_Settings"

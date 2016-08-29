@@ -37,7 +37,7 @@ cp -a lg-lib/*.so MirrorLinkServer/lib/arm/
 
 if [ "$1" != "-t" ]; then
     adb root
-    sleep 2
+    sleep 3
     adb remount
     adb shell mkdir -p /system/app/MirrorLinkServer/lib/arm /system/app/MirrorLinkCertUpdate
     adb push signed_MirrorLinkCertUpdate.apk /system/app/MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk

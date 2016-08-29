@@ -865,10 +865,8 @@
 
     .line 90
     .local v4, "usbManager":Landroid/hardware/usb/UsbManager;
-    invoke-virtual {v4, v7}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;)V
 
     .line 91
-    invoke-virtual {v4, v8}, Landroid/hardware/usb/UsbManager;->setUsbDataUnlocked(Z)V
 
     goto :goto_a
 
@@ -898,7 +896,6 @@
     invoke-virtual {v5, v2}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
 
     .line 101
-    invoke-direct {p0}, Lcom/lge/mirrorlink/MirrorLinkHandler;->resetNCM()V
 
     .line 102
     iget-object v5, p0, Lcom/lge/mirrorlink/MirrorLinkHandler;->mMirrorLinkPreference:Lcom/lge/mirrorlink/MirrorLinkPreference;
