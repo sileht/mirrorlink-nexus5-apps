@@ -2559,6 +2559,8 @@
     .registers 71
 
     .prologue
+    return-void
+
     .line 683
     const-string/jumbo v8, "window"
 
