@@ -232,6 +232,10 @@
 
     move-result-object v4
 
+    const/4 v6, 0x1
+
+    return v6
+
     .line 851
     .local v4, "publicKey":Ljava/security/PublicKey;
     :try_start_5
