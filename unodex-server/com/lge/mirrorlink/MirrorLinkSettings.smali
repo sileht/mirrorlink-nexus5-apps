@@ -172,7 +172,7 @@
     .line 60
     const-string/jumbo v7, "com.android.settings"
 
-    const-string/jumbo v8, "com.android.settings.Settings$ShareConnectionActivity"
+    const-string/jumbo v8, "com.android.settings.Settings$TetherSettingsActivity"
 
     invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
