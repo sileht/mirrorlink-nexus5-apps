@@ -2,6 +2,7 @@
 set -ex
 
 cleanup() {
+    return
     rm -f keystore
     rm -f signed_*.apk
     rm -rf unodex-*
@@ -33,13 +34,16 @@ sed -i 's/ShareConnectionActivity/TetherSettingsActivity/g' unodex-server/com/lg
 java -jar smali-2.1.3.jar -o server-classes.dex unodex-server
 java -jar smali-2.1.3.jar -o certupdate-classes.dex unodex-certupdate
 
+# Add some proprietary lg libs
+cp -a lg-lib/*.so MirrorLinkServer/lib/arm/
+
 ./repack-and-sign-apk.sh MirrorLinkServer/MirrorLinkServer.apk server-classes.dex
 ./repack-and-sign-apk.sh MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk certupdate-classes.dex
 
 if [ "$1" != "-t" ]; then
     adb root
-    sleep 5
-    adb shell mount -o remount,rw /system
+    sleep 2
+    adb remount
     adb shell mkdir -p /system/app/MirrorLinkServer/lib/arm /system/app/MirrorLinkCertUpdate
     adb push signed_MirrorLinkCertUpdate.apk /system/app/MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk
     adb push signed_MirrorLinkServer.apk /system/app/MirrorLinkServer/MirrorLinkServer.apk
