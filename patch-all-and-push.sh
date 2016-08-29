@@ -18,7 +18,8 @@ cleanup
 ./genkeystore cm-13.0-signkeys/platform.x509.pem cm-13.0-signkeys/platform.pk8 android platform keystore
 
 #zip Mirrorlink_MM.zip
-#tar -xzf MirrorLink_MM.tar.gz
+tar -xzf MirrorLink_MM.tar.gz
+
 #java -jar baksmali-2.1.3.jar -x -c framework-6.0.1-lg-g4/arm/boot.oat -d framework-6.0.1-lg-g4/arm -o unodex-server MirrorLinkServer/oat/arm/MirrorLinkServer.odex
 #java -jar baksmali-2.1.3.jar -x -c framework-6.0.1-lg-g4/arm64/boot.oat -d framework-6.0.1-lg-g4/arm64 -o unodex-certupdate MirrorLinkCertUpdate/oat/arm64/MirrorLinkCertUpdate.odex
 #sed -i 's/.line 683/return-void\n\n    .line 683/' unodex-server/com/lge/mirrorlink/vnc/lib/FramebufferUpdateThread.smali
@@ -41,8 +42,7 @@ if [ "$1" != "-t" ]; then
     adb shell mkdir -p /system/app/MirrorLinkServer/lib/arm /system/app/MirrorLinkCertUpdate
     adb push signed_MirrorLinkCertUpdate.apk /system/app/MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk
     adb push signed_MirrorLinkServer.apk /system/app/MirrorLinkServer/MirrorLinkServer.apk
-    adb push MirrorLinkServer/lib/arm/libCapture.so /system/app/MirrorLinkServer/lib/arm/
-    adb push MirrorLinkServer/lib/arm/libmlupnp.so /system/app/MirrorLinkServer/lib/arm/
+    adb push MirrorLinkServer/lib/arm/ /system/app/MirrorLinkServer/lib/arm/
     adb shell sync
     adb shell reboot
 fi
