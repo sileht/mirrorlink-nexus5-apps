@@ -1,6 +1,5 @@
 signed_*.apk
 *classes.dex
-unodex-*
 keystore
 MirrorLinkServer
 MirrorLinkCertUpdate
