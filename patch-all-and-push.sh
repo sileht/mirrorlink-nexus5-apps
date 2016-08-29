@@ -22,6 +22,13 @@ cleanup
 tar -xzf MirrorLink_MM.tar.gz
 java -jar baksmali-2.1.3.jar -x -c framework-6.0.1-lg-g4/arm/boot.oat -d framework-6.0.1-lg-g4/arm -o unodex-server MirrorLinkServer/oat/arm/MirrorLinkServer.odex
 java -jar baksmali-2.1.3.jar -x -c framework-6.0.1-lg-g4/arm64/boot.oat -d framework-6.0.1-lg-g4/arm64 -o unodex-certupdate MirrorLinkCertUpdate/oat/arm64/MirrorLinkCertUpdate.odex
+
+# Don't check cert
+sed -i 's/.line 851/const\/4 v6, 0x1\n\n    return v6\n\n    .line 851/g' unodex-server/com/lge/mirrorlink/certificate/CertificateManager.smali
+
+# Change return Activity link
+sed -i 's/ShareConnectionActivity/TetherSettingsActivity/g' unodex-server/com/lge/mirrorlink/MirrorLinkSettings.smali
+
 java -jar smali-2.1.3.jar -o server-classes.dex unodex-server
 java -jar smali-2.1.3.jar -o certupdate-classes.dex unodex-certupdate
 
