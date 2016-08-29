@@ -36,6 +36,7 @@ cp -a lg-lib/*.so MirrorLinkServer/lib/arm/
 ./repack-and-sign-apk.sh MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk certupdate-classes.dex
 
 if [ "$1" != "-t" ]; then
+    adb connect 192.168.8.104
     adb root
     sleep 3
     adb remount
@@ -44,5 +45,5 @@ if [ "$1" != "-t" ]; then
     adb push signed_MirrorLinkServer.apk /system/app/MirrorLinkServer/MirrorLinkServer.apk
     adb push MirrorLinkServer/lib/arm/ /system/app/MirrorLinkServer/lib/arm/
     adb shell sync
-    adb shell reboot
+#    adb shell reboot
 fi
