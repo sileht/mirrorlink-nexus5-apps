@@ -842,7 +842,6 @@
     invoke-static {v5, v8, v6}, Lcom/lge/mirrorlink/MirrorLinkNotificationManager;->updateNotification(Landroid/content/Context;ILjava/lang/String;)V
 
     .line 85
-    invoke-direct {p0}, Lcom/lge/mirrorlink/MirrorLinkHandler;->disableExpandandNavi()V
 
     goto :goto_a
 
@@ -876,7 +875,6 @@
     .line 95
     .end local v4    # "usbManager":Landroid/hardware/usb/UsbManager;
     :pswitch_72
-    invoke-direct {p0}, Lcom/lge/mirrorlink/MirrorLinkHandler;->enableExpandandNavi()V
 
     .line 96
     invoke-direct {p0}, Lcom/lge/mirrorlink/MirrorLinkHandler;->stopUpnpService()Z
