@@ -28,22 +28,25 @@ tar -xzf MirrorLink_MM.tar.gz
 
 java -jar smali-2.1.3.jar -o server-classes.dex unodex-server
 java -jar smali-2.1.3.jar -o certupdate-classes.dex unodex-certupdate
+java -jar smali-2.1.3.jar -o eden-classes.dex unodex-certupdate
 
 # Add some proprietary lg libs
 cp -a lg-lib/*.so MirrorLinkServer/lib/arm/
 
 ./repack-and-sign-apk.sh MirrorLinkServer/MirrorLinkServer.apk server-classes.dex
 ./repack-and-sign-apk.sh MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk certupdate-classes.dex
+./repack-and-sign-apk.sh EdenService/EdenService.apk eden-classes.dex
 
 if [ "$1" != "-t" ]; then
     #adb connect 192.168.8.104
     adb root
     sleep 3
     adb remount
-    adb shell mkdir -p /system/app/MirrorLinkServer/lib/arm /system/app/MirrorLinkCertUpdate
+    adb shell mkdir -p /system/app/MirrorLinkServer/lib/arm /system/app/MirrorLinkCertUpdate /system/priv-app/EdenService
+    adb push signed_EdenService.apk /system/priv-app/EdenService/EdenService.apk
     adb push signed_MirrorLinkCertUpdate.apk /system/app/MirrorLinkCertUpdate/MirrorLinkCertUpdate.apk
     adb push signed_MirrorLinkServer.apk /system/app/MirrorLinkServer/MirrorLinkServer.apk
     adb push MirrorLinkServer/lib/arm/ /system/app/MirrorLinkServer/lib/arm/
     adb shell sync
-    adb shell reboot
+#    adb shell reboot
 fi
