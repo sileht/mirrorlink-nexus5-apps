@@ -1570,6 +1570,10 @@
 
     .prologue
     .line 248
+    const/4 v0, 0x1
+
+    return v0
+
     iget-object v0, p0, Lcom/lge/mirrorlink/certificate/DeveloperIdCertificate;->mDeveloperId:Ljava/lang/String;
 
     if-eqz v0, :cond_14

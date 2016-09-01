@@ -2983,6 +2983,10 @@
 
     move-result v0
 
+    const/4 v0, 0x1
+
+    return v0
+
     if-eqz v0, :cond_39
 
     .line 360

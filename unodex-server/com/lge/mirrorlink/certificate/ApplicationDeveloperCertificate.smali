@@ -653,6 +653,10 @@
 
     .prologue
     .line 448
+    const/4 v0, 0x1
+
+    return v0
+
     iget-object v0, p0, Lcom/lge/mirrorlink/certificate/ApplicationDeveloperCertificate;->appIdentifier:Ljava/lang/String;
 
     if-eqz v0, :cond_22

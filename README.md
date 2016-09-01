@@ -11,6 +11,6 @@ jarsigner (from openjdk-8-jdk-headless for example)
 zipalign
 baksmali (2.1.3 is provided in the repo)
 smali (2.1.3 is provided in the repo)
-
+apktool
 
 MirrorLink apps comes from ROMs from http://storagecow.eu/index.php?dir=Xda%2FLG+G4%2FH815%2FMarshmallow+6.0%2F
