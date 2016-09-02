@@ -3,3 +3,5 @@ signed_*.apk
 keystore
 MirrorLinkServer
 MirrorLinkCertUpdate
+EdenService
+LGATCMDService

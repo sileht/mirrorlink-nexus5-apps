@@ -29,9 +29,12 @@ echo param4 $ALIAS
 
 # delete META-INF folder
 zip -d $APK META-INF/\*
-cp -f $DEX classes.dex
-zip $APK classes.dex
-rm -f classes.dex
+
+if [ "$DEX" ] ; then
+    cp -f $DEX classes.dex
+    zip $APK classes.dex
+    rm -f classes.dex
+fi
 
 # sign APK
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE -storepass $STOREPASS $APK $ALIAS
