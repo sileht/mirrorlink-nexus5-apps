@@ -1,4 +1,7 @@
 
+That was an invesgation and that DOESN'T WORK 
+=============================================
+
 Convert MirrorLink System Apps from LG G4 stock ROM to Nexus 5
 (Should work on any 32bit ARM eabi5)
 
